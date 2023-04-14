@@ -1,0 +1,15 @@
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/bin/Debug/net7.0/TuringMachineSimulation
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/bin/Debug/net7.0/TuringMachineSimulation.deps.json
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/bin/Debug/net7.0/TuringMachineSimulation.runtimeconfig.json
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/bin/Debug/net7.0/TuringMachineSimulation.dll
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/bin/Debug/net7.0/TuringMachineSimulation.pdb
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.csproj.AssemblyReference.cache
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.GeneratedMSBuildEditorConfig.editorconfig
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.AssemblyInfoInputs.cache
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.AssemblyInfo.cs
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.csproj.CoreCompileInputs.cache
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.dll
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/refint/TuringMachineSimulation.dll
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.pdb
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.genruntimeconfig.cache
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/ref/TuringMachineSimulation.dll
