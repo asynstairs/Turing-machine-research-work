@@ -2,10 +2,17 @@ namespace TuringMachineSimulation.Machines.Minsky;
 
 public abstract class AbstractExecutableMinskyMachine
 {
+    protected Action? OnCompleted { get; private set; } = null;
+
+    public void SetActionOnCompleted(Action onCompleted)
+    {
+        OnCompleted = onCompleted;
+    }
+
     public void Execute()
     {
-        Console.WriteLine($"Executing node: {GetType().Name}.");
         OnExecuted();
+        OnCompleted?.Invoke();
     }
     
     protected abstract void OnExecuted();

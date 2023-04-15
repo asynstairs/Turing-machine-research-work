@@ -1,4 +1,5 @@
 using System.Collections;
+using TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Extensions;
 
 namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Group;
 
@@ -19,7 +20,7 @@ public class ExecutionGroupMinskyMachine : AbstractExecutableMinskyMachine
         
         foreach (var executable in _executables)
         {
-            executable.Execute();
+            executable.OnComplete(OnCompleted).Execute();
         }
     }
 }

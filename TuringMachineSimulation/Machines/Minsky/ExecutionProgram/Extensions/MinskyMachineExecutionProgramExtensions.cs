@@ -9,4 +9,11 @@ public static class MinskyMachineExecutionProgramExtensions
         group.Add(executable);
         return group;
     }
+
+    public static AbstractExecutableMinskyMachine OnComplete(this AbstractExecutableMinskyMachine executable,
+        Action onCompleted)
+    {
+        executable.SetActionOnCompleted(onCompleted);
+        return executable;
+    }
 }

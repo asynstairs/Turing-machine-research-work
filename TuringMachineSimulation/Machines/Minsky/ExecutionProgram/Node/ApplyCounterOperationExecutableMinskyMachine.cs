@@ -1,7 +1,6 @@
-using TuringMachineSimulation.Machines.Minsky.Parameters;
 using TuringMachineSimulation.Machines.Simulations;
 
-namespace TuringMachineSimulation.Machines.Minsky;
+namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Node;
 
 public class ApplyCounterOperationExecutableMinskyMachine : AbstractExecutableMinskyMachine
 {
