@@ -7,4 +7,9 @@ public interface IMinskyMachine<TMinskyMachineSimulation> : IMachine<TMinskyMach
     where TMinskyMachineSimulation : IMachineSimulation
 {
     protected TMinskyMachineSimulation MainSimulation { get; set; }
+
+    void ChangeConfigState(int stateOrder);
+
+    void ChangeCounter(DoubleCounterMinskyMachineCounterType counterType,
+        MinskyMachineCounterOperationType operationType);
 }

@@ -8,18 +8,18 @@ public class MinskyMachineSemiGroups : IMinskyMachine<IDoubleCounterMinskyMachin
     public IDoubleCounterMinskyMachineSimulation MainSimulation { get; set; } 
         = new DoubleCounterSemiGroupSimulationMinskyMachine();
 
-    public void ChangeConfigState(int stateOrder)
+    void IMinskyMachine<IDoubleCounterMinskyMachineSimulation>.ChangeConfigState(int stateOrder)
     {
         MainSimulation.ChangeStateOrder(stateOrder);
     }
 
-    public void ChangeCounter(DoubleCounterMinskyMachineCounterType counterType, 
+    void IMinskyMachine<IDoubleCounterMinskyMachineSimulation>.ChangeCounter(DoubleCounterMinskyMachineCounterType counterType, 
         MinskyMachineCounterOperationType operationType)
     {
         MainSimulation.ApplyOperationOnCounter(operationType, counterType);
     }
 
-    public string GetConfigRepresentation()
+    string IMachine<IDoubleCounterMinskyMachineSimulation>.GetConfigRepresentation()
     {
         return MainSimulation.GetConfigRepresentation();
     }
