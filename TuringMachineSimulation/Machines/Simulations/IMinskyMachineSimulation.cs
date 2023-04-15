@@ -3,8 +3,8 @@ using TuringMachineSimulation.Machines.Simulation;
 
 namespace TuringMachineSimulation.Machines.Simulations;
 
-public interface IMinskyMachineSimulation<TCounterMinskyMachineType>: IMachineSimulation
+public interface IMinskyMachineSimulation<in TCounterMinskyMachineType>: IMachineSimulation
 {
-    bool TryApplyOperation(MinskyMachineCounterOperationType operationType, 
+    void ApplyOperationOnCounter(MinskyMachineCounterOperationType operationType, 
         TCounterMinskyMachineType counterType);
 }

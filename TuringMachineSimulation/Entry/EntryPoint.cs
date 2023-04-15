@@ -8,21 +8,114 @@ namespace Entry
         public static void Main(string[] args)
         {
             var minskyMachine = new MinskyMachineSemiGroups();
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.First, 
+                MinskyMachineCounterOperationType.Increment);
 
-            Console.WriteLine(minskyMachine.GetCurrentConfig());
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
             
-            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Left, MinskyMachineCounterOperationType.Increment);
-            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Left, MinskyMachineCounterOperationType.Increment);
-            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Left, MinskyMachineCounterOperationType.Increment);
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Increment);
             
-            Console.WriteLine(minskyMachine.GetCurrentConfig());
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
             
-            minskyMachine.ChangeConfigState(5);
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Decrement);
             
-            Console.WriteLine(minskyMachine.GetCurrentConfig());
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
             
-            Console.WriteLine(minskyMachine.GetCounterValue(DoubleCounterMinskyMachineCounterType.Left));
-            Console.WriteLine(minskyMachine.GetCounterValue(DoubleCounterMinskyMachineCounterType.Right));
+             
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Decrement);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+             
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Decrement);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Increment);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Increment);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.First, 
+                MinskyMachineCounterOperationType.Decrement);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.First, 
+                MinskyMachineCounterOperationType.Decrement);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Decrement);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Decrement);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+                MinskyMachineCounterOperationType.Decrement);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeConfigState(2);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeConfigState(3);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            
+            minskyMachine.ChangeConfigState(4);
+            
+            Console.WriteLine(minskyMachine.GetConfigRepresentation());
+             
+            // minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.First, 
+            //     MinskyMachineCounterOperationType.Increment);
+            //
+            // Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            //
+            //  
+            // minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.First, 
+            //     MinskyMachineCounterOperationType.Increment);
+            //
+            // Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            //
+            //  
+            // minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+            //     MinskyMachineCounterOperationType.Increment);
+            //
+            // Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            //
+            // minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+            //     MinskyMachineCounterOperationType.Increment);
+            //
+            // Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            //
+            // minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+            //     MinskyMachineCounterOperationType.Decrement);
+            //
+            // Console.WriteLine(minskyMachine.GetConfigRepresentation());
+            //
+            // minskyMachine.ChangeCounter(DoubleCounterMinskyMachineCounterType.Second, 
+            //     MinskyMachineCounterOperationType.Decrement);
+            //
+            // Console.WriteLine(minskyMachine.GetConfigRepresentation());
         }
     }
 }
