@@ -1,4 +1,4 @@
-namespace TuringMachineSimulation.Machines.Minsky;
+namespace TuringMachineSimulation.Machines.Minsky.Operation;
 
 public enum MinskyMachineCounterOperationType
 {

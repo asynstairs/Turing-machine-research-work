@@ -1,4 +1,6 @@
-namespace TuringMachineSimulation.Machines.Configs;
+using TuringMachineSimulation.Machines.Configs;
+
+namespace TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Config;
 
 public interface IDoubleCounterMinskyMachineConfig<TCounter, TEmptyState, TConfigState> : IMachineConfig
 {

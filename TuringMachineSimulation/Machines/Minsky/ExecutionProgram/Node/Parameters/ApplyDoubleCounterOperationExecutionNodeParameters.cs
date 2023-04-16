@@ -1,6 +1,8 @@
+using TuringMachineSimulation.Machines.Minsky.Operation;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
 using TuringMachineSimulation.Machines.Simulations;
 
-namespace TuringMachineSimulation.Machines.Minsky.Parameters;
+namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Node.Parameters;
 
 public struct ApplyDoubleCounterOperationExecutionNodeParameters : IExecutionNodeMinskyMachineParameters
 {

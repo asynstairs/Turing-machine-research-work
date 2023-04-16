@@ -1,9 +1,10 @@
-using TuringMachineSimulation.Machines.Configs;
-using TuringMachineSimulation.Machines.Minsky;
-using TuringMachineSimulation.Machines.Minsky.EmptyState;
+using TuringMachineSimulation.Machines.Minsky.Operation;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Config;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.EmptyState;
 using TuringMachineSimulation.Machines.Simulations;
 
-namespace TuringMachineSimulation.Machines.Simulation;
+namespace TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Simulation;
 
 public class DoubleCounterSemiGroupSimulationMinskyMachine : IDoubleCounterMinskyMachineSimulation
 {

@@ -1,4 +1,6 @@
 using TuringMachineSimulation.Machines.Minsky;
+using TuringMachineSimulation.Machines.Minsky.Operation;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
 
 namespace TuringMachineSimulation.Machines.Simulations;
 

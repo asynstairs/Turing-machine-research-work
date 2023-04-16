@@ -1,6 +1,6 @@
 using TuringMachineSimulation.Math.SemiGroups;
 
-namespace TuringMachineSimulation.Machines.Minsky.EmptyState;
+namespace TuringMachineSimulation.Machines.Minsky.SemiGroup.EmptyState;
 
 public class EmptyStateSemiGroupMinskyMachine
 {

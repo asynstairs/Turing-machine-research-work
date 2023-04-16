@@ -1,7 +1,9 @@
-using TuringMachineSimulation.Machines.Simulation;
+using TuringMachineSimulation.Machines.Minsky.Operation;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Simulation;
 using TuringMachineSimulation.Machines.Simulations;
 
-namespace TuringMachineSimulation.Machines.Minsky;
+namespace TuringMachineSimulation.Machines.Minsky.SemiGroup;
 
 public class MinskyMachineSemiGroups : IMinskyMachine<IDoubleCounterMinskyMachineSimulation>
 {

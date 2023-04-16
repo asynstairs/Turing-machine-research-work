@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Geg3JImmh/OYa/1EiTe5xhfwjqZFQQ5mImv5ppVjZHk35JZw9tPHtJBm15LaOs5uruFv71iuk4LO2hE5Hdhnzw==",
+  "dgSpecHash": "eidFtEaxGJj+SsjVwHyiTHW55/Hjo6yEvP9el0BcddDevPnBL/TYPrQVVs5vXw7icRryTs3wDK08gE5vJoNSHA==",
   "success": true,
   "projectFilePath": "/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/TuringMachineSimulation.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/asynstairs/.nuget/packages/commandlineparser/2.9.1/commandlineparser.2.9.1.nupkg.sha512"
+  ],
   "logs": []
 }

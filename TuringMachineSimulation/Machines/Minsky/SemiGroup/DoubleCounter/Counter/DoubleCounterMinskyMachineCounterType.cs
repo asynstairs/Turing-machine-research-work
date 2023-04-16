@@ -1,4 +1,4 @@
-namespace TuringMachineSimulation.Machines.Minsky;
+namespace TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
 
 public enum DoubleCounterMinskyMachineCounterType
 {

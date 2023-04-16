@@ -13,3 +13,5 @@
 /Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.pdb
 /Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.genruntimeconfig.cache
 /Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/ref/TuringMachineSimulation.dll
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/bin/Debug/net7.0/CommandLine.dll
+/Users/asynstairs/RiderProjects/TuringMachineSimulation/TuringMachineSimulation/obj/Debug/net7.0/TuringMachineSimulation.csproj.CopyComplete

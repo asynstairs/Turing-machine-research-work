@@ -1,4 +1,4 @@
-using TuringMachineSimulation.Machines.Simulation;
+using TuringMachineSimulation.Machines.Simulations;
 
 namespace TuringMachineSimulation.Machines;
 

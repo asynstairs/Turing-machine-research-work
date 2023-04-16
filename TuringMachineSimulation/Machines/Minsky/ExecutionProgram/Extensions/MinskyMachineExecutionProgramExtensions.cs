@@ -1,4 +1,5 @@
 using TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Group;
+using TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Node;
 
 namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Extensions;
 

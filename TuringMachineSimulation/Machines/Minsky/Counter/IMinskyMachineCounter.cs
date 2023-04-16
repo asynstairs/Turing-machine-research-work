@@ -1,3 +1,5 @@
+using TuringMachineSimulation.Machines.Minsky.Operation;
+
 namespace TuringMachineSimulation.Machines.Minsky.Counter;
 
 public interface IMinskyMachineCounter

@@ -1,4 +1,4 @@
-namespace TuringMachineSimulation.Machines.Minsky.EmptyState;
+namespace TuringMachineSimulation.Machines.Minsky.SemiGroup.EmptyState;
 
 public enum EmptyStateSemiGroupMinskyMachineType
 {

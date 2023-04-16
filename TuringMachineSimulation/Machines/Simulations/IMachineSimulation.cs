@@ -1,4 +1,4 @@
-namespace TuringMachineSimulation.Machines.Simulation;
+namespace TuringMachineSimulation.Machines.Simulations;
 
 public interface IMachineSimulation
 {

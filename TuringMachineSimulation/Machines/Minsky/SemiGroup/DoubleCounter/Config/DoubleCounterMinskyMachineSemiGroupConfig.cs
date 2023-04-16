@@ -1,8 +1,8 @@
-using TuringMachineSimulation.Machines.Minsky.Counter;
-using TuringMachineSimulation.Machines.Minsky.EmptyState;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.EmptyState;
 using TuringMachineSimulation.Math.SemiGroups;
 
-namespace TuringMachineSimulation.Machines.Configs;
+namespace TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Config;
 
 public class DoubleCounterMinskyMachineSemiGroupConfig : 
     IDoubleCounterMinskyMachineConfig<MinskyMachineSemiGroupCounter, EmptyStateSemiGroupMinskyMachine, MathLetter>

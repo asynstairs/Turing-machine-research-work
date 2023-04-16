@@ -1,3 +1,5 @@
+using TuringMachineSimulation.Machines.Minsky.Operation;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
 using TuringMachineSimulation.Machines.Simulations;
 
 namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Node;

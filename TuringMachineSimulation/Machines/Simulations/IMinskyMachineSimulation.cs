@@ -1,5 +1,5 @@
 using TuringMachineSimulation.Machines.Minsky;
-using TuringMachineSimulation.Machines.Simulation;
+using TuringMachineSimulation.Machines.Minsky.Operation;
 
 namespace TuringMachineSimulation.Machines.Simulations;
 
