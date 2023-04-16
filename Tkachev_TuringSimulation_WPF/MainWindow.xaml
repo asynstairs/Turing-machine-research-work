@@ -1,0 +1,88 @@
+﻿<Window x:Class="Tkachev_TuringSimulation_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tkachev_TuringSimulation_WPF"
+        mc:Ignorable="d"
+        Title="Minsky Machine Simulation | Tkachev Alexey | 2023" Height="550" Width="800">
+    <Grid>
+        <StackPanel>
+            <Label HorizontalAlignment="Center" FontSize="20" Content="Симуляция машины Минского с использованием полугрупп."></Label>
+            <GroupBox Header="Стартовые значения">
+                <StackPanel Margin="5">
+                    <GroupBox Header="Счетчик A">
+                        <DockPanel>
+                            <TextBlock Text="Значение:"></TextBlock>
+                            <TextBox Name="ACounterTextBox" Text="3"></TextBox>  
+                        </DockPanel>
+                    </GroupBox>
+                    <GroupBox Header="Счетчик B">
+                        <DockPanel>
+                            <TextBlock Text="Значение:"></TextBlock>
+                            <TextBox Name="BCounterTextBox" Text="5"></TextBox>  
+                        </DockPanel>
+                    </GroupBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Программа">
+                <StackPanel Margin="5">
+                   <GroupBox Header="Операции">
+                       <DockPanel>
+                           <StackPanel>
+                               <DockPanel>
+                                   <GroupBox Header="Вспомогательные">
+                                       <StackPanel>
+                                           <Button Name="CloseGroupButton" Click="CloseGroupButton_OnClick" Content="Закрыть группу"></Button>
+                                           <Button Name="AddStopButton" Click="AddEndButton_OnClick" Content="Добавить конечное состояние"></Button>
+                                       </StackPanel>
+                                   </GroupBox>
+                                   <GroupBox Header="Изменение счетчиков">
+                                       <StackPanel>
+                                           <Button Name="IncrementAButton" Click="IncrementAButton_OnClick" Content="Увеличить счетчик A"></Button>
+                                           <Button Name="IncrementBButton" Click="DecrementAButton_OnClick" Content="Уменьшить счетчик A"></Button>
+                                           <Button Name="DecrementAButton" Click="IncrementBButton_OnClick" Content="Увеличить счетчик B"></Button>
+                                           <Button Name="DecrementBButton" Click="DecrementBButton_OnClick" Content="Уменьшить счетчик B"></Button>
+                                       </StackPanel>
+                                   </GroupBox>
+                                   <GroupBox Header="Выбор перехода">
+                                       <StackPanel>
+                                           <Button Name="ConditionalTransitionButton" Content="Условный" Click="ConditionalTransitionButton_OnClick"></Button>
+                                           <Button Name="NonConditionalTransitionButton" Content="Безусловный" Click="NonConditionalTransitionButton_OnClick"></Button>
+                                       </StackPanel>
+                                   </GroupBox>
+                               </DockPanel>
+                           </StackPanel>
+                           <GroupBox Header="Текущая программа">
+                               <StackPanel>
+                                   <TextBox Name="ProgrammTextBox" Height="100" IsReadOnly="True" Text="A+ B- -> B+ -> кон"></TextBox>
+                                   <Button Name="ResetButton" Click="ResetButton_OnClick" HorizontalAlignment="Right" Width="150" Margin="5" Content="Сброс"></Button>
+                               </StackPanel>
+                           </GroupBox>
+                       </DockPanel>
+                   </GroupBox>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Исполнение машины">
+                <DockPanel>
+                    <GroupBox Header="Результат">
+                        <StackPanel>
+                            <DockPanel>
+                                <Label Content="Счетчик A"></Label>
+                                <TextBox Name="ResultACounterTextBox" Width="30"></TextBox>
+                            </DockPanel>
+                            <DockPanel>
+                                <Label Content="Счетчик B"></Label>
+                                <TextBox Name="ResultBCounterTextBox" Width="30"></TextBox>
+                            </DockPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Протокол">
+                        <TextBox IsReadOnly="True" Name="ProtocolTextBox"></TextBox>
+                    </GroupBox>
+                </DockPanel>
+            </GroupBox>
+            <Button Name="StartButton" Click="StartButton_OnClick" Content="Начать исполнение" Height="25" Width="180" HorizontalAlignment="Center" Margin="5"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
