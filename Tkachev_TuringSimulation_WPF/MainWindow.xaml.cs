@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,8 @@ namespace Tkachev_TuringSimulation_WPF
         public MainWindow()
         {
             InitializeComponent();
+            
+            StartConfig();
         }
         
         private void Reset()
@@ -204,7 +207,7 @@ namespace Tkachev_TuringSimulation_WPF
             Reset();
         }
 
-        private void ExecuteMinskyMachine()
+        private async Task ExecuteMinskyMachine()
         {
             var temp = new ExecutionGroupMinskyMachine();
 
@@ -222,12 +225,26 @@ namespace Tkachev_TuringSimulation_WPF
 
             temp.Add(_executionTree);
 
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             temp.Execute();
+            stopwatch.Stop();
+
+            ExecutionTimeLabel.Content = $"Execution time: {stopwatch.ElapsedMilliseconds} ms.";
         }
 
         private void ResetButton_OnClick(object sender, RoutedEventArgs e)
         {
             Reset();
+        }
+
+        private void StartConfig()
+        {
+            AddProgramExecutable(MinskyMachine2CProgramView.DecrementFirstCounter);
+            AddProgramExecutable(MinskyMachine2CProgramView.ConditionalTransition);
+            AddProgramExecutable(MinskyMachine2CProgramView.StopNode);
+            AddProgramExecutable(MinskyMachine2CProgramView.EndGroup);
+            AddProgramExecutable(MinskyMachine2CProgramView.IncrementSecondCounter);
         }
 
         private void PrintCountersResults()

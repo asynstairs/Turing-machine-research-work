@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tkachev_TuringSimulation_WPF"
         mc:Ignorable="d"
-        Title="Minsky Machine Simulation | Tkachev Alexey | 2023" Height="550" Width="800">
+        Title="Minsky Machine Simulation | Tkachev Alexey | 2023" Height="650" Width="900"
+        FontSize="14">
     <Grid>
         <DockPanel>
         <StackPanel>
@@ -14,14 +15,14 @@
                 <StackPanel Margin="5">
                     <GroupBox Header="Счетчик A">
                         <DockPanel>
-                            <TextBlock Text="Значение:"></TextBlock>
-                            <TextBox Name="ACounterTextBox" Text="3"></TextBox>  
+                            <TextBlock Text="Значение" Margin="5"></TextBlock>
+                            <TextBox Name="ACounterTextBox" Text="5"></TextBox>  
                         </DockPanel>
                     </GroupBox>
                     <GroupBox Header="Счетчик B">
                         <DockPanel>
-                            <TextBlock Text="Значение:"></TextBlock>
-                            <TextBox Name="BCounterTextBox" Text="5"></TextBox>  
+                            <TextBlock Text="Значение" Margin="5"></TextBlock>
+                            <TextBox Name="BCounterTextBox" Text="3"></TextBox>  
                         </DockPanel>
                     </GroupBox>
                 </StackPanel>
@@ -34,22 +35,22 @@
                                <DockPanel>
                                    <GroupBox Header="Вспомогательные">
                                        <StackPanel>
-                                           <Button Name="CloseGroupButton" Click="CloseGroupButton_OnClick" Content="Закрыть группу" Margin="5"></Button>
-                                           <Button Name="AddStopButton" Click="AddEndButton_OnClick" Content="Добавить конечное состояние" Margin="5"></Button>
+                                           <Button Name="CloseGroupButton" Click="CloseGroupButton_OnClick" Content="]" Margin="5"></Button>
+                                           <Button Name="AddStopButton" Click="AddEndButton_OnClick" Content="STOP" Margin="5"></Button>
                                        </StackPanel>
                                    </GroupBox>
                                    <GroupBox Header="Изменение счетчиков">
                                        <StackPanel>
-                                           <Button Name="IncrementAButton" Click="IncrementAButton_OnClick" Content="Увеличить счетчик A" Margin="5"></Button>
-                                           <Button Name="IncrementBButton" Click="DecrementAButton_OnClick" Content="Уменьшить счетчик A" Margin="5"></Button>
-                                           <Button Name="DecrementAButton" Click="IncrementBButton_OnClick" Content="Увеличить счетчик B" Margin="5"></Button>
-                                           <Button Name="DecrementBButton" Click="DecrementBButton_OnClick" Content="Уменьшить счетчик B" Margin="5"></Button>
+                                           <Button Name="IncrementAButton" Click="IncrementAButton_OnClick" Content="A+" Margin="5"></Button>
+                                           <Button Name="IncrementBButton" Click="DecrementAButton_OnClick" Content="A-" Margin="5"></Button>
+                                           <Button Name="DecrementAButton" Click="IncrementBButton_OnClick" Content="B+" Margin="5"></Button>
+                                           <Button Name="DecrementBButton" Click="DecrementBButton_OnClick" Content="B-" Margin="5"></Button>
                                        </StackPanel>
                                    </GroupBox>
                                    <GroupBox Header="Выбор перехода">
                                        <StackPanel>
-                                           <Button Name="ConditionalTransitionButton" Content="Условный" Click="ConditionalTransitionButton_OnClick" Margin="5"></Button>
-                                           <Button Name="NonConditionalTransitionButton" Content="Безусловный" Click="NonConditionalTransitionButton_OnClick" Margin="5"></Button>
+                                           <Button Name="ConditionalTransitionButton" Content="?=>" Click="ConditionalTransitionButton_OnClick" Margin="5"></Button>
+                                           <Button Name="NonConditionalTransitionButton" Content="->" Click="NonConditionalTransitionButton_OnClick" Margin="5"></Button>
                                        </StackPanel>
                                    </GroupBox>
                                </DockPanel>
@@ -68,19 +69,20 @@
                 <DockPanel>
                     <GroupBox Header="Результат">
                         <StackPanel>
-                            <DockPanel>
+                            <DockPanel Margin="5">
                                 <Label Content="Счетчик A"></Label>
-                                <TextBox Name="ResultACounterTextBox"></TextBox>
+                                <TextBox Name="ResultACounterTextBox" IsReadOnly="True"></TextBox>
                             </DockPanel>
-                            <DockPanel>
+                            <DockPanel Margin="5">
                                 <Label Content="Счетчик B"></Label>
-                                <TextBox Name="ResultBCounterTextBox"></TextBox>
+                                <TextBox Name="ResultBCounterTextBox" IsReadOnly="True"></TextBox>
                             </DockPanel>
                         </StackPanel>
                     </GroupBox>
                 </DockPanel>
             </GroupBox>
             <Button Name="StartButton" Click="StartButton_OnClick" Content="Начать исполнение" Height="25" Width="180" HorizontalAlignment="Center" Margin="5"></Button>
+            <Label Name="ExecutionTimeLabel" Content="Execution time: 0ms"></Label>
         </StackPanel>
             <GroupBox Header="Протокол">
                 <TextBox IsReadOnly="True" Name="ProtocolTextBox"></TextBox>
