@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using Tkachev_TuringSimulation_WPF.Files;
 using Tkachev_TuringSimulation_WPF.View.ExecutableProgram;
 using TuringMachineSimulation.Machines.Minsky;
 using TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Extensions;
@@ -192,32 +195,56 @@ namespace Tkachev_TuringSimulation_WPF
 
         private void StartButton_OnClick(object sender, RoutedEventArgs e)
         {
-            var temp = new ExecutionGroupMinskyMachine();
+            ExecuteMinskyMachine();
+
+            PrintProtocolAsync().ConfigureAwait(false);
+
+            PrintCountersResults();
             
+            Reset();
+        }
+
+        private void ExecuteMinskyMachine()
+        {
+            var temp = new ExecutionGroupMinskyMachine();
+
             temp.Add(new ApplyCounterOperationExecutableMinskyMachine(
                 DoubleCounterMinskyMachineCounterType.First,
                 MinskyMachineCounterOperationType.Increment,
                 _doubleCounterMinskyMachine,
                 Convert.ToInt32(ACounterTextBox.Text)));
-            
+
             temp.Add(new ApplyCounterOperationExecutableMinskyMachine(
-                DoubleCounterMinskyMachineCounterType.Second, 
+                DoubleCounterMinskyMachineCounterType.Second,
                 MinskyMachineCounterOperationType.Increment,
                 _doubleCounterMinskyMachine,
                 Convert.ToInt32(BCounterTextBox.Text)));
-            
+
             temp.Add(_executionTree);
 
             temp.Execute();
-            
-            ProtocolTextBox.Text = _doubleCounterMinskyMachine.GetConfigRepresentation();
-
-            Reset();
         }
 
         private void ResetButton_OnClick(object sender, RoutedEventArgs e)
         {
             Reset();
+        }
+
+        private void PrintCountersResults()
+        {
+            ResultACounterTextBox.Text = _doubleCounterMinskyMachine
+                    .GetCounterValue(DoubleCounterMinskyMachineCounterType.First)
+                    .ToString();
+            
+            ResultBCounterTextBox.Text = _doubleCounterMinskyMachine
+                .GetCounterValue(DoubleCounterMinskyMachineCounterType.Second)
+                .ToString();
+        }
+
+        private async Task PrintProtocolAsync()
+        {
+            ProtocolTextBox.Text = await File.ReadAllTextAsync(GlobalPaths.LogFiles[LogFilesTypes.Protocol]);
+            await GlobalPaths.ClearAllAsync();
         }
     }
 }

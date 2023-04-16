@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Minsky Machine Simulation | Tkachev Alexey | 2023" Height="550" Width="800">
     <Grid>
+        <DockPanel>
         <StackPanel>
             <Label HorizontalAlignment="Center" FontSize="20" Content="Симуляция машины Минского с использованием полугрупп."></Label>
             <GroupBox Header="Стартовые значения">
@@ -27,35 +28,35 @@
             </GroupBox>
             <GroupBox Header="Программа">
                 <StackPanel Margin="5">
-                   <GroupBox Header="Операции">
+                   <GroupBox Header="Построение программы">
                        <DockPanel>
                            <StackPanel>
                                <DockPanel>
                                    <GroupBox Header="Вспомогательные">
                                        <StackPanel>
-                                           <Button Name="CloseGroupButton" Click="CloseGroupButton_OnClick" Content="Закрыть группу"></Button>
-                                           <Button Name="AddStopButton" Click="AddEndButton_OnClick" Content="Добавить конечное состояние"></Button>
+                                           <Button Name="CloseGroupButton" Click="CloseGroupButton_OnClick" Content="Закрыть группу" Margin="5"></Button>
+                                           <Button Name="AddStopButton" Click="AddEndButton_OnClick" Content="Добавить конечное состояние" Margin="5"></Button>
                                        </StackPanel>
                                    </GroupBox>
                                    <GroupBox Header="Изменение счетчиков">
                                        <StackPanel>
-                                           <Button Name="IncrementAButton" Click="IncrementAButton_OnClick" Content="Увеличить счетчик A"></Button>
-                                           <Button Name="IncrementBButton" Click="DecrementAButton_OnClick" Content="Уменьшить счетчик A"></Button>
-                                           <Button Name="DecrementAButton" Click="IncrementBButton_OnClick" Content="Увеличить счетчик B"></Button>
-                                           <Button Name="DecrementBButton" Click="DecrementBButton_OnClick" Content="Уменьшить счетчик B"></Button>
+                                           <Button Name="IncrementAButton" Click="IncrementAButton_OnClick" Content="Увеличить счетчик A" Margin="5"></Button>
+                                           <Button Name="IncrementBButton" Click="DecrementAButton_OnClick" Content="Уменьшить счетчик A" Margin="5"></Button>
+                                           <Button Name="DecrementAButton" Click="IncrementBButton_OnClick" Content="Увеличить счетчик B" Margin="5"></Button>
+                                           <Button Name="DecrementBButton" Click="DecrementBButton_OnClick" Content="Уменьшить счетчик B" Margin="5"></Button>
                                        </StackPanel>
                                    </GroupBox>
                                    <GroupBox Header="Выбор перехода">
                                        <StackPanel>
-                                           <Button Name="ConditionalTransitionButton" Content="Условный" Click="ConditionalTransitionButton_OnClick"></Button>
-                                           <Button Name="NonConditionalTransitionButton" Content="Безусловный" Click="NonConditionalTransitionButton_OnClick"></Button>
+                                           <Button Name="ConditionalTransitionButton" Content="Условный" Click="ConditionalTransitionButton_OnClick" Margin="5"></Button>
+                                           <Button Name="NonConditionalTransitionButton" Content="Безусловный" Click="NonConditionalTransitionButton_OnClick" Margin="5"></Button>
                                        </StackPanel>
                                    </GroupBox>
                                </DockPanel>
                            </StackPanel>
                            <GroupBox Header="Текущая программа">
                                <StackPanel>
-                                   <TextBox Name="ProgrammTextBox" Height="100" IsReadOnly="True" Text="A+ B- -> B+ -> кон"></TextBox>
+                                   <TextBox Name="ProgrammTextBox" Height="100" IsReadOnly="True"></TextBox>
                                    <Button Name="ResetButton" Click="ResetButton_OnClick" HorizontalAlignment="Right" Width="150" Margin="5" Content="Сброс"></Button>
                                </StackPanel>
                            </GroupBox>
@@ -69,20 +70,21 @@
                         <StackPanel>
                             <DockPanel>
                                 <Label Content="Счетчик A"></Label>
-                                <TextBox Name="ResultACounterTextBox" Width="30"></TextBox>
+                                <TextBox Name="ResultACounterTextBox"></TextBox>
                             </DockPanel>
                             <DockPanel>
                                 <Label Content="Счетчик B"></Label>
-                                <TextBox Name="ResultBCounterTextBox" Width="30"></TextBox>
+                                <TextBox Name="ResultBCounterTextBox"></TextBox>
                             </DockPanel>
                         </StackPanel>
-                    </GroupBox>
-                    <GroupBox Header="Протокол">
-                        <TextBox IsReadOnly="True" Name="ProtocolTextBox"></TextBox>
                     </GroupBox>
                 </DockPanel>
             </GroupBox>
             <Button Name="StartButton" Click="StartButton_OnClick" Content="Начать исполнение" Height="25" Width="180" HorizontalAlignment="Center" Margin="5"></Button>
         </StackPanel>
+            <GroupBox Header="Протокол">
+                <TextBox IsReadOnly="True" Name="ProtocolTextBox"></TextBox>
+            </GroupBox>
+        </DockPanel>
     </Grid>
 </Window>

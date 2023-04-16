@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using Tkachev_TuringSimulation_WPF.Files;
 using TuringMachineSimulation.Machines.Minsky.Operation;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Config;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
@@ -60,7 +61,7 @@ public class DoubleCounterSemiGroupSimulationMinskyMachine : IDoubleCounterMinsk
 
     private void Log(string logAlso = default)
     {
-        using var writer = File.AppendText("Config.log");
+        using var writer = File.AppendText(GlobalPaths.LogFiles[LogFilesTypes.Protocol]);
         writer.WriteLine(_config.GetRepresentation() + logAlso);
     }
 
