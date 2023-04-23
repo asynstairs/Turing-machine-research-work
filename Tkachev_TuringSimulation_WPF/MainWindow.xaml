@@ -17,13 +17,13 @@
                     <GroupBox Header="Счетчик A">
                         <DockPanel>
                             <TextBlock Text="Значение" Margin="5"></TextBlock>
-                            <TextBox Name="ACounterTextBox" Text="5"></TextBox>  
+                            <TextBox Name="ACounterTextBox" Text="5" PreviewTextInput="NumberValidationTextBox" MaxLength="2"></TextBox>  
                         </DockPanel>
                     </GroupBox>
                     <GroupBox Header="Счетчик B">
                         <DockPanel>
-                            <TextBlock Text="Значение" Margin="5"></TextBlock>
-                            <TextBox Name="BCounterTextBox" Text="3"></TextBox>  
+                            <TextBlock Text="Значение" Margin="5" PreviewTextInput="NumberValidationTextBox"></TextBlock>
+                            <TextBox Name="BCounterTextBox" Text="3" MaxLength="2"></TextBox>  
                         </DockPanel>
                     </GroupBox>
                 </StackPanel>

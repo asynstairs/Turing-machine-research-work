@@ -3,9 +3,11 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using Tkachev_TuringSimulation_WPF.Files;
 using Tkachev_TuringSimulation_WPF.View.ExecutableProgram;
 using TuringMachineSimulation.Machines.Minsky;
@@ -75,22 +77,26 @@ namespace Tkachev_TuringSimulation_WPF
             _cancellationTokenSource.Cancel();
         }
 
-        private void StartButton_OnClick(object sender, RoutedEventArgs e)
+        private async void StartButton_OnClick(object sender, RoutedEventArgs e)
         {
-            ExecuteMinskyMachine();
-
+            if (_currentEditingState != ProgramEditingState.Default)
+            {
+                MessageBox.Show($"Вы не закрыли группу условного перехода!", "Ошибка ввода!");
+                return;
+            }
+            
             try
             {
-                PrintProtocolAsync(_cancellationTokenSource.Token).ConfigureAwait(false);
+                await ExecuteMinskyMachine();
             }
-            catch (OperationCanceledException operationCanceledException) { }
-
-            PrintCountersResults();
-            
-            Reset();
+            catch (Exception exception)
+            {
+                MessageBox.Show($"Введенная программа либо слишком велика, либо зацикливается." +
+                                $" Она не может быть выполнена. Проверьте корректность введеных данных.", "Ошибка программы!");
+            }
         }
 
-        private void ExecuteMinskyMachine()
+        private async Task ExecuteMinskyMachine()
         {
             var temp = new ExecutionGroupMinskyMachine();
             
@@ -108,8 +114,38 @@ namespace Tkachev_TuringSimulation_WPF
 
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            temp.Execute(_doubleCounterMinskyMachine);
+
+            await Task.Run(() => temp.Execute(_doubleCounterMinskyMachine)).WaitAsync(_cancellationTokenSource.Token);
+
             stopwatch.Stop();
+
+            OnExecutedMachine(stopwatch);
+        }
+
+        private async Task ExecutionTimeout()
+        {
+            await Task.Delay(TimeSpan.FromMilliseconds(1f));
+        }
+        
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            var regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void OnExecutedMachine(Stopwatch stopwatch)
+        {
+            try
+            {
+                PrintProtocolAsync(_cancellationTokenSource.Token).ConfigureAwait(false);
+            }
+            catch (OperationCanceledException operationCanceledException)
+            {
+            }
+
+            PrintCountersResults();
+
+            Reset();
 
             ExecutionTimeLabel.Content = $"Execution time: {stopwatch.ElapsedMilliseconds} ms.";
         }

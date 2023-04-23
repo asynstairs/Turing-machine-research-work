@@ -69,6 +69,11 @@ public class DoubleCounterSemiGroupSimulationMinskyMachine : IDoubleCounterMinsk
             default:
                 throw new ArgumentOutOfRangeException(nameof(counterType), counterType, null);
         }
+
+        if (_currentStateOrder > 1000)
+        {
+            throw new TimeoutException("Too many operations need to be handled.");
+        }
         
         _config.SetStateOrder(_currentStateOrder++);
 
