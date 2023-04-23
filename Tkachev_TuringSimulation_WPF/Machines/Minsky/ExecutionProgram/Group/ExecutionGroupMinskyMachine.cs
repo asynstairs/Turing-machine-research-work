@@ -11,9 +11,10 @@ public class ExecutionGroupMinskyMachine : AbstractExecutableMinskyMachine
     private readonly ICollection<AbstractExecutableMinskyMachine> _executables
         = new List<AbstractExecutableMinskyMachine>();
 
-    public void Clear()
+    public void Reset()
     {
         _executables.Clear();
+        IsCompleted = false;
     }
 
     public void Add(AbstractExecutableMinskyMachine executable)

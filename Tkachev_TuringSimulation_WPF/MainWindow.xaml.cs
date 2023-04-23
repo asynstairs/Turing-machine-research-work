@@ -66,7 +66,7 @@ namespace Tkachev_TuringSimulation_WPF
         private void Reset()
         {
             ProgrammTextBox.Text = string.Empty;
-            _executionTree.Clear();
+            _executionTree.Reset();
             _programStringBuilder.Clear();
             _doubleCounterMinskyMachine = new MinskyMachineSemiGroups();
             _lastUsedExecutable = null;
