@@ -1,3 +1,4 @@
+using System.Text;
 using TuringMachineSimulation.Machines.Minsky.Operation;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Simulation;
@@ -7,8 +8,14 @@ namespace TuringMachineSimulation.Machines.Minsky.SemiGroup;
 
 public class MinskyMachineSemiGroups : IMinskyMachine<IDoubleCounterMinskyMachineSimulation>
 {
-    public IDoubleCounterMinskyMachineSimulation MainSimulation { get; set; } 
-        = new DoubleCounterSemiGroupSimulationMinskyMachine();
+    public StringBuilder Configs { get; private set; } = new StringBuilder();
+
+    public IDoubleCounterMinskyMachineSimulation MainSimulation { get; private set; }
+
+    public MinskyMachineSemiGroups()
+    {
+        MainSimulation = new DoubleCounterSemiGroupSimulationMinskyMachine(Configs);
+    }
 
     int IMinskyMachine<IDoubleCounterMinskyMachineSimulation>.GetCounterValue(DoubleCounterMinskyMachineCounterType counterType)
     {

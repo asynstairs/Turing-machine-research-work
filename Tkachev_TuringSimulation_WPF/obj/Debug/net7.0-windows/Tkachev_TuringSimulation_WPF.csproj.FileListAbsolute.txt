@@ -19,3 +19,6 @@ C:\Users\user\RiderProjects\Tkachev_TuringSimulation_WPF\Tkachev_TuringSimulatio
 C:\Users\user\RiderProjects\Tkachev_TuringSimulation_WPF\Tkachev_TuringSimulation_WPF\obj\Debug\net7.0-windows\Tkachev_TuringSimulation_WPF.pdb
 C:\Users\user\RiderProjects\Tkachev_TuringSimulation_WPF\Tkachev_TuringSimulation_WPF\obj\Debug\net7.0-windows\Tkachev_TuringSimulation_WPF.genruntimeconfig.cache
 C:\Users\user\RiderProjects\Tkachev_TuringSimulation_WPF\Tkachev_TuringSimulation_WPF\obj\Debug\net7.0-windows\ref\Tkachev_TuringSimulation_WPF.dll
+C:\Users\user\RiderProjects\Tkachev_TuringSimulation_WPF\Tkachev_TuringSimulation_WPF\bin\Debug\net7.0-windows\WpfMath.dll
+C:\Users\user\RiderProjects\Tkachev_TuringSimulation_WPF\Tkachev_TuringSimulation_WPF\bin\Debug\net7.0-windows\XamlMath.Shared.dll
+C:\Users\user\RiderProjects\Tkachev_TuringSimulation_WPF\Tkachev_TuringSimulation_WPF\obj\Debug\net7.0-windows\Tkachev_TuringSimulation_WPF.csproj.CopyComplete

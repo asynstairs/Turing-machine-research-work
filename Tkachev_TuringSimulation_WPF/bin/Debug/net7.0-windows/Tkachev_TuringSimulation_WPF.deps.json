@@ -7,8 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v7.0": {
       "Tkachev_TuringSimulation_WPF/1.0.0": {
+        "dependencies": {
+          "WpfMath": "1.0.0"
+        },
         "runtime": {
           "Tkachev_TuringSimulation_WPF.dll": {}
+        }
+      },
+      "WpfMath/1.0.0": {
+        "dependencies": {
+          "XamlMath.Shared": "1.0.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/WpfMath.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "XamlMath.Shared/1.0.0": {
+        "runtime": {
+          "lib/net6.0/XamlMath.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -18,6 +40,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "WpfMath/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7et482Cih6Sxc2TmehX5E7Y3rW+QM3FlRu3K4xMqoXOI5D2Q1I3q58JAezS9lwdxje8TynRAFtD6HUIb5iSYPA==",
+      "path": "wpfmath/1.0.0",
+      "hashPath": "wpfmath.1.0.0.nupkg.sha512"
+    },
+    "XamlMath.Shared/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PuyYDLIgeogHehh984DKTER4LO4zOGI6mY8cSGLK8TTxKyrSyA22htLV25nnzXq1wR8bNxU9i5Xf+x2C2lMmdg==",
+      "path": "xamlmath.shared/1.0.0",
+      "hashPath": "xamlmath.shared.1.0.0.nupkg.sha512"
     }
   }
 }

@@ -1,4 +1,6 @@
+using System;
 using System.Diagnostics;
+using System.Linq;
 using TuringMachineSimulation.Machines.Minsky.Operation;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
 using TuringMachineSimulation.Machines.Simulations;
@@ -9,51 +11,65 @@ public class ApplyCounterOperationExecutableMinskyMachine : AbstractExecutableMi
 {
     private readonly DoubleCounterMinskyMachineCounterType _counterType;
     private readonly MinskyMachineCounterOperationType _operationType;
-    private readonly IMinskyMachine<IDoubleCounterMinskyMachineSimulation> _doubleCounterMinskyMachine;
     private readonly int _countAppliedOperation;
     
     public ApplyCounterOperationExecutableMinskyMachine(
         DoubleCounterMinskyMachineCounterType counterType,
         MinskyMachineCounterOperationType operationType,
-        IMinskyMachine<IDoubleCounterMinskyMachineSimulation> doubleCounterMinskyMachine,
         int countAppliedOperation = 1)
     {
         _counterType = counterType;
         _operationType = operationType;
         _countAppliedOperation = countAppliedOperation;
-        _doubleCounterMinskyMachine = doubleCounterMinskyMachine;
-
-        LogAlso = $"OpType: {operationType}, CType: {counterType}, Val: {doubleCounterMinskyMachine.GetCounterValue(counterType)}";
     }
 
-    protected override void OnExecuted()
+    protected override void OnExecuted(IMinskyMachine<IDoubleCounterMinskyMachineSimulation> minskyMachine, Action onCompleted = default)
     {
-        for (int i = 0; i < _countAppliedOperation; i++)
+        if (_countAppliedOperation == 0)
+        {
+            TryLaunchNextExecutables(minskyMachine);
+            
+            IsCompleted = true;
+            return;
+        }
+
+        if (_operationType == MinskyMachineCounterOperationType.Decrement)
+        {
+            int a = 0;
+        }
+        
+        for (var i = 0; i < _countAppliedOperation; i++)
         {
             if (_operationType == MinskyMachineCounterOperationType.Decrement &&
-                _doubleCounterMinskyMachine.IsCounterEmpty(_counterType))
+                minskyMachine.IsCounterEmpty(_counterType))
             {
-                if (NextExecutables != null)
-                {
-                    foreach (var executable in NextExecutables)
-                    {
-                        if (executable is StopExecutableMinskyMachine2C)
-                            break;
-                        
-                        executable.Execute();
-                    }
-                }
-
+                TryLaunchNextExecutables(minskyMachine);
                 IsCompleted = true;
                 return;
             }
-
-            if (_operationType == MinskyMachineCounterOperationType.Increment || NextExecutables == null)
-            {
-                IsCompleted = true;
-            }
-                
-            _doubleCounterMinskyMachine.ChangeCounter(_counterType, _operationType);
+            
+            minskyMachine.ChangeCounter(_counterType, _operationType);
         }
+        
+        switch (_operationType)
+        {
+            case MinskyMachineCounterOperationType.Increment:
+            case MinskyMachineCounterOperationType.Decrement when !NextExecutables.Any():
+                IsCompleted = true;
+                return;
+        }
+    }
+
+    private bool TryLaunchNextExecutables(IMinskyMachine<IDoubleCounterMinskyMachineSimulation> minskyMachine)
+    {
+        foreach (var executable in NextExecutables)
+        {
+            if (executable is StopExecutableMinskyMachine2C)
+                return true;
+
+            executable.Execute(minskyMachine);
+        }
+
+        return NextExecutables.Any();
     }
 }

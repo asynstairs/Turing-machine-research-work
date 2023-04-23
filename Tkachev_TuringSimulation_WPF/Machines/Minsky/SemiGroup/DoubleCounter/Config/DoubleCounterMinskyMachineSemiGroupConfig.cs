@@ -39,14 +39,16 @@ public class DoubleCounterMinskyMachineSemiGroupConfig :
 
     public string GetRepresentation()
     {
+        const string delimiter = @" ";
+        
         var firstEmptyStateRepresentation = FirstCounterEmptyState.IsEnabled ? $"{FirstCounterEmptyState}" : string.Empty;
         var secondEmptyStateRepresentation = SecondCounterEmptyState.IsEnabled ? $"{SecondCounterEmptyState}" : string.Empty;
         
         return
-            $"{firstEmptyStateRepresentation} " +
-            $"{FirstCounter.MathLetter} " +
-            $"{CurrentConfigState} " +
-            $"{SecondCounter.MathLetter} " +
+            $"{firstEmptyStateRepresentation}" + delimiter +
+            $"{FirstCounter.MathLetter}" + delimiter +
+            $"{CurrentConfigState}" + delimiter +
+            $"{SecondCounter.MathLetter} " + delimiter +
             $"{secondEmptyStateRepresentation}";
     }
 }

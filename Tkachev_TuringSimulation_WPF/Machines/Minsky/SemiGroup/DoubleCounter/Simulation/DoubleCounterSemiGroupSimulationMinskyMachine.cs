@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 using Tkachev_TuringSimulation_WPF.Files;
 using TuringMachineSimulation.Machines.Minsky.Operation;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Config;
@@ -13,6 +14,19 @@ public class DoubleCounterSemiGroupSimulationMinskyMachine : IDoubleCounterMinsk
 {
     private readonly DoubleCounterMinskyMachineSemiGroupConfig _config
         = new DoubleCounterMinskyMachineSemiGroupConfig();
+
+    private int _currentStateOrder = 0;
+    
+    public bool UseLog { get; set; }
+
+    private readonly StringBuilder _configs;
+
+    public DoubleCounterSemiGroupSimulationMinskyMachine(StringBuilder configs)
+    {
+        _configs = configs;
+        SetEmptyStates();
+        Log();
+    }
 
     void IDoubleCounterMinskyMachineSimulation.ChangeStateOrder(int order)
     {
@@ -56,22 +70,27 @@ public class DoubleCounterSemiGroupSimulationMinskyMachine : IDoubleCounterMinsk
                 throw new ArgumentOutOfRangeException(nameof(counterType), counterType, null);
         }
         
+        _config.SetStateOrder(_currentStateOrder++);
+
+        SetEmptyStates();
+        
         Log();
     }
 
-    private void Log(string logAlso = default)
+    private void SetEmptyStates()
     {
-        using var writer = File.AppendText(GlobalPaths.LogFiles[LogFilesTypes.Protocol]);
-        writer.WriteLine(_config.GetRepresentation() + logAlso);
+        SetEmptyStateEnabled(EmptyStateSemiGroupMinskyMachineType.First, _config.FirstCounter.IsEmpty());
+        SetEmptyStateEnabled(EmptyStateSemiGroupMinskyMachineType.Second, _config.SecondCounter.IsEmpty());
+    }
+
+    private void Log()
+    {
+        _configs.Append(_config.GetRepresentation() + @"\\");
     }
 
     private void SetEmptyStateEnabled(EmptyStateSemiGroupMinskyMachineType emptyStateSemiGroupMinskyMachineType, bool isEnabled)
     {
         _config.SetEmptyStateEnabled(emptyStateSemiGroupMinskyMachineType, isEnabled);
-
-        var emptyStateLog = isEnabled ? $"[set empty state]" : string.Empty;
-        
-        Log(emptyStateLog);
     }
 
     string IMachineSimulation.GetConfigRepresentation()

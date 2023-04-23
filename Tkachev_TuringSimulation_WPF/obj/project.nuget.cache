@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "q0YpP7PBh9PXGziPMnf3KsQW1NcriGIEwEi/B8KSyv9bP5WM3A2ojF/fZGreMUEBmx2NdsShPnom+Y02HAyUpA==",
+  "dgSpecHash": "5UBhmLscxqMZNve/t36FePJp9f+2BAPyESNypsDF6gEEuCCKRq2mhXC1E4NWeXj38ONTSM7hSZH4h2Up80VICw==",
   "success": true,
   "projectFilePath": "C:\\Users\\user\\RiderProjects\\Tkachev_TuringSimulation_WPF\\Tkachev_TuringSimulation_WPF\\Tkachev_TuringSimulation_WPF.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\user\\.nuget\\packages\\wpfmath\\1.0.0\\wpfmath.1.0.0.nupkg.sha512",
+    "C:\\Users\\user\\.nuget\\packages\\xamlmath.shared\\1.0.0\\xamlmath.shared.1.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

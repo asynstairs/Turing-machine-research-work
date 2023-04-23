@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Extensions;
 using TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Node;
+using TuringMachineSimulation.Machines.Simulations;
 
 namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Group;
 
@@ -16,17 +15,18 @@ public class ExecutionGroupMinskyMachine : AbstractExecutableMinskyMachine
     {
         _executables.Clear();
     }
-    
+
     public void Add(AbstractExecutableMinskyMachine executable)
     {
         _executables.Add(executable);
     }
-    
-    protected override void OnExecuted()
+
+    protected override void OnExecuted(IMinskyMachine<IDoubleCounterMinskyMachineSimulation> minskyMachine2C, 
+        Action onCompleted = default)
     {
         var isStopped = false;
         
-        do
+        while (!isStopped && _executables.Count(e => !e.IsCompleted) > 0)
         {
             foreach (var executable in _executables)
             {
@@ -35,10 +35,13 @@ public class ExecutionGroupMinskyMachine : AbstractExecutableMinskyMachine
                     isStopped = true;
                     break;
                 }
-                
-                executable.Execute();
+
+                if (_executables.Count(e => !e.IsCompleted) == 0)
+                    break;
+
+                executable.Execute(minskyMachine2C);
             }
-        } while (!isStopped && _executables.Count(e => !e.IsCompleted) > 0);
+        }
 
         IsCompleted = true;
     }

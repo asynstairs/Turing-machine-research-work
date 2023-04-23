@@ -5,17 +5,24 @@ public class MathLetter
     private const string _indexPrefix = @"_";
     private const string _powerPrefix = @"^";
     private const int _defaultPower = 0;
+
+    public int Power { get; set; }
     
-    public int Power { get;  set; }
-    public string? Index { get; set; }
+    public string PowerPresentation => @"{" + Power + @"}";
+    
+    public string IndexPresentation => @"{" + Index + @"}";
+    
+    public string? Index { get; set; } = string.Empty;
     
     public string Name { get; init; }
 
     public MathLetter(string name, int power = _defaultPower, string? index = default)
     {
         Name = name;
+
         Power = power;
-        Index = index;
+        
+        Index = index is null ? string.Empty :  @"{" + index + @"}";
     }
 
     public bool IsNameEqualTo(MathLetter mathLetter)
@@ -35,9 +42,7 @@ public class MathLetter
 
     public override string ToString()
     {
-        var indexView = Index != default ? $"{_indexPrefix}{Index}" : string.Empty;
-        var powerView = Power != _defaultPower ? $"{_powerPrefix}{Power}" : string.Empty;
-        return $"{Name}{indexView}{powerView}";
+        return $"{Name}{_indexPrefix}{IndexPresentation}{_powerPrefix}{PowerPresentation}";
     }
 
     public static MathLetter operator *(MathLetter origin, MathLetter other)

@@ -1,3 +1,4 @@
+using System.Text;
 using TuringMachineSimulation.Machines.Minsky.Counter;
 using TuringMachineSimulation.Machines.Minsky.Operation;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
@@ -8,7 +9,9 @@ namespace TuringMachineSimulation.Machines.Minsky;
 public interface IMinskyMachine<TMinskyMachineSimulation> : IMachine<TMinskyMachineSimulation>
     where TMinskyMachineSimulation : IMachineSimulation
 {
-    protected TMinskyMachineSimulation MainSimulation { get; set; }
+    public StringBuilder Configs { get; }
+    
+    protected TMinskyMachineSimulation MainSimulation { get; }
 
     int GetCounterValue(DoubleCounterMinskyMachineCounterType counterType);
 

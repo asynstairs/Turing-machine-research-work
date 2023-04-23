@@ -41,6 +41,6 @@ public class MinskyMachineSemiGroupCounter : IMinskyMachineCounter
 
     public bool IsEmpty()
     {
-        return MathLetter.Power == 0;
+        return !(MathLetter.Power > 0);
     }
 }

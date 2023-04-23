@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using TuringMachineSimulation.Machines.Simulations;
 
 namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Node;
 
@@ -10,16 +11,13 @@ public abstract class AbstractExecutableMinskyMachine
     public bool IsCompleted { get; protected set; }
     public ICollection<AbstractExecutableMinskyMachine> NextExecutables { get; set; } 
         = new List<AbstractExecutableMinskyMachine>();
-
-    protected string LogAlso { get; set; } = default;
     
-    public void Execute()
-    {
-        OnExecuted();
 
-        using var writer = File.AppendText("log.log");
-        writer.WriteLine($"Exec: {GetType().Name}, IsCom: {IsCompleted}, NextExecC: {NextExecutables.Count}, {LogAlso}");
+    public void Execute(IMinskyMachine<IDoubleCounterMinskyMachineSimulation> minskyMachine2C, Action onCompleted = default)
+    {
+        OnExecuted(minskyMachine2C);
+        onCompleted?.Invoke();
     }
     
-    protected abstract void OnExecuted();
+    protected abstract void OnExecuted(IMinskyMachine<IDoubleCounterMinskyMachineSimulation> minskyMachine2C, Action onCompleted = default);
 }
