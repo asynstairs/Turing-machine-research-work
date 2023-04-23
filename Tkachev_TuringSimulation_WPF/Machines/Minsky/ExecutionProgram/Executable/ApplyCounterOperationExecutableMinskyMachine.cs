@@ -10,16 +10,16 @@ namespace TuringMachineSimulation.Machines.Minsky.ExecutionProgram.Node;
 public class ApplyCounterOperationExecutableMinskyMachine : AbstractExecutableMinskyMachine
 {
     private readonly DoubleCounterMinskyMachineCounterType _counterType;
-    private readonly MinskyMachineCounterOperationType _operationType;
     private readonly int _countAppliedOperation;
-    
+    public MinskyMachineCounterOperationType OperationType { get; private set; }
+
     public ApplyCounterOperationExecutableMinskyMachine(
         DoubleCounterMinskyMachineCounterType counterType,
         MinskyMachineCounterOperationType operationType,
         int countAppliedOperation = 1)
     {
         _counterType = counterType;
-        _operationType = operationType;
+        OperationType = operationType;
         _countAppliedOperation = countAppliedOperation;
     }
 
@@ -33,14 +33,14 @@ public class ApplyCounterOperationExecutableMinskyMachine : AbstractExecutableMi
             return;
         }
 
-        if (_operationType == MinskyMachineCounterOperationType.Decrement)
+        if (OperationType == MinskyMachineCounterOperationType.Decrement)
         {
             int a = 0;
         }
         
         for (var i = 0; i < _countAppliedOperation; i++)
         {
-            if (_operationType == MinskyMachineCounterOperationType.Decrement &&
+            if (OperationType == MinskyMachineCounterOperationType.Decrement &&
                 minskyMachine.IsCounterEmpty(_counterType))
             {
                 TryLaunchNextExecutables(minskyMachine);
@@ -48,10 +48,10 @@ public class ApplyCounterOperationExecutableMinskyMachine : AbstractExecutableMi
                 return;
             }
             
-            minskyMachine.ChangeCounter(_counterType, _operationType);
+            minskyMachine.ChangeCounter(_counterType, OperationType);
         }
         
-        switch (_operationType)
+        switch (OperationType)
         {
             case MinskyMachineCounterOperationType.Increment:
             case MinskyMachineCounterOperationType.Decrement when !NextExecutables.Any():

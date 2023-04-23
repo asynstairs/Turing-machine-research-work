@@ -1,4 +1,5 @@
 using System;
+using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Config.State;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Counter;
 using TuringMachineSimulation.Machines.Minsky.SemiGroup.EmptyState;
 using TuringMachineSimulation.Math.SemiGroups;
@@ -6,13 +7,13 @@ using TuringMachineSimulation.Math.SemiGroups;
 namespace TuringMachineSimulation.Machines.Minsky.SemiGroup.DoubleCounter.Config;
 
 public class DoubleCounterMinskyMachineSemiGroupConfig : 
-    IDoubleCounterMinskyMachineConfig<MinskyMachineSemiGroupCounter, EmptyStateSemiGroupMinskyMachine, MathLetter>
+    IDoubleCounterMinskyMachineConfig<MinskyMachineSemiGroupCounter, EmptyStateSemiGroupMinskyMachine, ConfigStateSemiGroupMinskyMachine>
 {
     public MinskyMachineSemiGroupCounter FirstCounter { get; } = new MinskyMachineSemiGroupCounter(new MathLetter("a", index: "1"));
     public MinskyMachineSemiGroupCounter SecondCounter { get; } = new MinskyMachineSemiGroupCounter(new MathLetter("a", index: "2"));
     public EmptyStateSemiGroupMinskyMachine FirstCounterEmptyState { get; } = new (index: "1");
     public EmptyStateSemiGroupMinskyMachine SecondCounterEmptyState { get; } = new (index: "2");
-    public MathLetter CurrentConfigState { get; } = new MathLetter("q", index: "1");
+    public ConfigStateSemiGroupMinskyMachine CurrentConfigState { get; } = new ConfigStateSemiGroupMinskyMachine("q", index: "0");
 
     public void SetEmptyStateEnabled(EmptyStateSemiGroupMinskyMachineType semiGroupMinskyMachineType, bool isEnabled)
     {

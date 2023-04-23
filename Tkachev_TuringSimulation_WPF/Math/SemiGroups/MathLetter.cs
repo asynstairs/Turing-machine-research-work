@@ -2,21 +2,17 @@ namespace TuringMachineSimulation.Math.SemiGroups;
 
 public class MathLetter
 {
-    private const string _indexPrefix = @"_";
-    private const string _powerPrefix = @"^";
-    private const int _defaultPower = 0;
-
     public int Power { get; set; }
     
-    public string PowerPresentation => @"{" + Power + @"}";
+    protected virtual string PowerPresentation => @"^{" + Power + @"}";
     
-    public string IndexPresentation => @"{" + Index + @"}";
+    private string IndexPresentation => @"_{" + Index + @"}";
     
     public string? Index { get; set; } = string.Empty;
     
     public string Name { get; init; }
 
-    public MathLetter(string name, int power = _defaultPower, string? index = default)
+    public MathLetter(string name, int power = 0, string? index = default)
     {
         Name = name;
 
@@ -42,7 +38,7 @@ public class MathLetter
 
     public override string ToString()
     {
-        return $"{Name}{_indexPrefix}{IndexPresentation}{_powerPrefix}{PowerPresentation}";
+        return $"{Name}{IndexPresentation}{PowerPresentation}";
     }
 
     public static MathLetter operator *(MathLetter origin, MathLetter other)

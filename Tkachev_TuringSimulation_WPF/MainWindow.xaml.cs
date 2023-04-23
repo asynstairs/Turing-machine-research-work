@@ -233,16 +233,45 @@ namespace Tkachev_TuringSimulation_WPF
 
         private void ConditionalTransitionButton_OnClick(object sender, RoutedEventArgs e)
         {
+            if (_lastUsedExecutable is ApplyCounterOperationExecutableMinskyMachine executable)
+            {
+                if (executable.OperationType == MinskyMachineCounterOperationType.Increment)
+                {
+                    MessageBox.Show("Вы не можете добавить условный переход к оператору увелечения счетчика!" +
+                                    "Условный переход возможен только для оператора уменьшения счетчика.", "Ошибка ввода!");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Вы не можете применить условный переход " +
+                                "не к оператору увеличения или уменьшения счетчиков!", "Ошибка ввода!");
+                
+                return;
+            }
+            
             AddProgramExecutable(MinskyMachine2CProgramView.ConditionalTransition);
-        }
-
-        private void NonConditionalTransitionButton_OnClick(object sender, RoutedEventArgs e)
-        {
-            AddProgramExecutable(MinskyMachine2CProgramView.NonConditionalTransition);
         }
 
         private void CloseGroupButton_OnClick(object sender, RoutedEventArgs e)
         {
+            if (_currentEditingState == ProgramEditingState.Default)
+            {
+                MessageBox.Show("Прежде чем закрыть группу, необходимо ее открыть." +
+                                " Была не найдена открывающая скобка [.", "Ошибка ввода!");
+                
+                return;
+            }
+
+            if (_lastUsedExecutable is not ApplyCounterOperationExecutableMinskyMachine)
+            {
+                MessageBox.Show("Вы не можете закрыть группу условного перехода" +
+                                ", не добавив операторов увеличения, уменьшения счетчиков по этому переходу. " +
+                                "Добавьте их прежде закрытия группы.", "Ошибка ввода!");
+                
+                return;
+            }
+
             AddProgramExecutable(MinskyMachine2CProgramView.EndGroup);
         }
 
